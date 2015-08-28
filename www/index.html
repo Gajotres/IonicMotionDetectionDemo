@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+ 
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+ 
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+ 
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/ng-cordova.min.js"></script>    
+    <script src="cordova.js"></script>
+ 
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+ 
+    <ion-pane ng-controller="MotionController">
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Start Watching Device Motion</h1>
+        </ion-header-bar>
+		
+        <ion-content >
+		     <div class="list">
+			  <label class="item item-input">
+				<span class="input-label">Frequency</span>
+				<input type="text" placeholder="0" ng-model="options.frequency">
+			  </label>
+			</div>	
+			<button class="button button-full button-positive" ng-click="startWatching()">
+			  Start Measurement
+			</button>
+			<button class="button button-full button-positive" ng-click="stopWatching()">
+			  Stop Measurement
+			</button>			
+			<h2>X: {{measurements.x}}</h2>
+			<h2>Y: {{measurements.y}}</h2>
+			<h2>Z: {{measurements.z}}</h2>
+        </ion-content>
+    </ion-pane>
+	
+  </body>
+</html>
